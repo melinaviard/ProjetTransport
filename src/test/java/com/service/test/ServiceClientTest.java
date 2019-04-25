@@ -59,7 +59,7 @@ public class ServiceClientTest {
 	public void should_store_when_save_is_called() { 
 		LOGGER.info("--------------- Executing should_store_when_save_is_called test Of ClientServiceTest ---------------");
 		Client myClient = new Client();
-		clientService.save(myClient);
+		clientService.add(myClient);
 		Mockito.verify(clientRepository).save(myClient); // pour tracker l'objet
 	}
 	

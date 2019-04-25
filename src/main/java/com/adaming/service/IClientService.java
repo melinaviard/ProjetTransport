@@ -11,7 +11,7 @@ import com.adaming.entity.Client;
 public interface IClientService {
 
 		
-		public Client save(Client client);
+		public Client add(Client client);
 		
 		public Client update(Client client);
 		
