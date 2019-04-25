@@ -21,7 +21,8 @@ public abstract class ClientServiceImpl implements IClientService {
 		this.clientRepository = clientRepository;
 	}
 	public Client save(Client client) {
-		return  clientRepository.save(client);
+		return  null; 
+				//clientRepository.save(client);
 	}
 	
 	public Client update(Client client) {
