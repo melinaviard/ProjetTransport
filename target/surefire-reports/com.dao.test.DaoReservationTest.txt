@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.dao.test.DaoReservationTest
+-------------------------------------------------------------------------------
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.762 s - in com.dao.test.DaoReservationTest
