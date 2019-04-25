@@ -15,10 +15,11 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.SpringBootRunner;
-
 import com.adaming.dao.IClientRepository;
 import com.adaming.entity.Client;
 import com.adaming.service.ClientServiceImpl;
+
+
 
 
 
@@ -47,7 +48,8 @@ public class ServiceClientTest {
 	@Before
 	  public final void setUp() {
 	    MockitoAnnotations.initMocks(this);
-	   clientService = new ClientServiceImpl(clientRepository);
+	   clientService = new ClientServiceImpl(clientRepository) {
+	};
 	}
 	  
 	

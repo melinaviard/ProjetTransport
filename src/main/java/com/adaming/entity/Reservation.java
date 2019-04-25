@@ -13,6 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
@@ -35,8 +36,10 @@ public class Reservation implements Serializable{
 	private String agenceFin;
 	
 	// 1 client peut avoir plusieurs reservations
-	@OneToMany(cascade=CascadeType.ALL, mappedBy="reservation",fetch=FetchType.LAZY )		
-	List<Client> projets=new ArrayList<Client>();
+	@ManyToOne
+	@JoinColumn(name="id_client" )
+	private Client client;
+	
 	
 	// 1 reservation concerne 1 vehicule
 	@OneToOne(cascade=CascadeType.ALL)	

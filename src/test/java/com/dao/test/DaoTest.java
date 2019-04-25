@@ -5,8 +5,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.SpringBootRunner;
+import com.adaming.dao.IReservationRepository;
 import com.adaming.entity.Reservation;
-import com.repositories.IReservationRepository;
 
 import static org.junit.Assert.assertNull;
 
