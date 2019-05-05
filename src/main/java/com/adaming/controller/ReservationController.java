@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.adaming.entity.Employe;
 import com.adaming.entity.Reservation;
 import com.adaming.service.ReservationServiceImpl;
 
@@ -37,33 +38,22 @@ public class ReservationController {
 		System.out.println(reservation.getId_reservation());
 		return this.reservationService.saveReservation(reservation);
 	}
-	@PutMapping("/{id}")
-	public Reservation updateReservation (@RequestBody Reservation reservation, @PathVariable Integer id) {
-		if(reservationService.findReservationById(id)==null) {
-			return null;
-		}
-		else {
-			return reservationService.saveReservation(reservation);
-		}
-	}
 	
-	@PutMapping("/{nom_user}")
-	public Reservation updatefReservation (@RequestBody Reservation reservation, @PathVariable String nom_user) {
-		if(reservationService.findReservationByClient(nom_user)==null) {
-			return null;
-		}
-		else {
-			return reservationService.saveReservation(reservation);
-		}
-	}
+	
+
+	@PutMapping("/updateid")
+    public Reservation updateReservation(@RequestBody Reservation reservation) {
+      
+		reservationService.saveReservation(reservation);
+	    	return reservation;
+        }
 
 	@DeleteMapping("/{id}")
 	public void deleteReservation(@PathVariable Integer id) {
-		if(reservationService.findReservationById(id)!=null) {
-			reservationService.deleteReservation(reservationService.findReservationById(id));
+		if(reservationService.findById_reservation(id)!=null) {
+			reservationService.deleteReservation(reservationService.findById_reservation(id));
 		}
 	}
 
 
 }
-

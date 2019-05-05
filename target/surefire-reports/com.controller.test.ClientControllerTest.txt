@@ -1,0 +1,16 @@
+-------------------------------------------------------------------------------
+Test set: com.controller.test.ClientControllerTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 1, Errors: 2, Skipped: 0, Time elapsed: 12.175 s <<< FAILURE! - in com.controller.test.ClientControllerTest
+should_have_200_status_when_deleteClient_is_called(com.controller.test.ClientControllerTest)  Time elapsed: 0.234 s  <<< FAILURE!
+java.lang.AssertionError: expected:<200> but was:<500>
+	at com.controller.test.ClientControllerTest.should_have_200_status_when_deleteClient_is_called(ClientControllerTest.java:119)
+
+should_use_add_when_addClient_is_called(com.controller.test.ClientControllerTest)  Time elapsed: 0.023 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.controller.test.ClientControllerTest.should_use_add_when_addClient_is_called(ClientControllerTest.java:102)
+
+should_use_delete_when_deleteClient_is_called(com.controller.test.ClientControllerTest)  Time elapsed: 0.009 s  <<< ERROR!
+java.lang.NullPointerException
+	at com.controller.test.ClientControllerTest.should_use_delete_when_deleteClient_is_called(ClientControllerTest.java:132)
+

@@ -12,5 +12,7 @@ public interface IEmployeService {
 	
 	public void deleteEmploye(Employe employe);
 
+	public Employe findById_employe(Integer id_employe);
+
 	
 }

@@ -1,12 +1,9 @@
 package com.adaming.entity;
 
-import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -28,19 +25,30 @@ import javax.persistence.Table;
 		private String prenom;
 		private String nom;
 		private int anneePermis;
+	
+		
+		public List<Reservation> getReservations() {
+			return reservations;
+		}
+		public void setReservations(List<Reservation> reservations) {
+			this.reservations = reservations;
+		}
 		private String adresse;
 		private String mail;
 		private int telephone;
 		
-		
-		@OneToMany(cascade=CascadeType.ALL, mappedBy="client",fetch=FetchType.LAZY )		
-		List<Reservation> listReservation=new ArrayList<Reservation>();
+		@OneToMany
+		@JoinColumn(name="id_reservation" )
+		private List<Reservation> reservations;
 		
 		//Getters setters sans id :
 		public Client() {
 			super();
 			// TODO Auto-generated constructor stub
 		}
+		
+		
+		
 		public Client(String pseudo, String prenom, String nom, int anneePermis, String adresse, String mail,
 				int telephone) {
 			super();

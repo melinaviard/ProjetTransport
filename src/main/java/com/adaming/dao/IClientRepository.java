@@ -1,4 +1,6 @@
 package com.adaming.dao;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -8,7 +10,7 @@ import com.adaming.entity.Client;
 public interface IClientRepository extends JpaRepository<Client, Integer> {
 
 		
-		public Client findFirst1ByNomAndNom(String prenom, String nom);
+		public List<Client> findByPrenomAndNom(String prenom, String nom);
 	
 
 }

@@ -1,17 +1,23 @@
 package com.adaming.service;
 
-
+import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.adaming.dao.IClientRepository;
 import com.adaming.entity.Client;
+/**
+ * 
+ * @author IN-LY-023
+ *
+ */
 
 
 @Service
-public abstract class ClientServiceImpl implements IClientService {
+public class ClientServiceImpl implements IClientService {
 
 	
 	@Autowired
@@ -20,13 +26,12 @@ public abstract class ClientServiceImpl implements IClientService {
 	public ClientServiceImpl(IClientRepository clientRepository) {
 		this.clientRepository = clientRepository;
 	}
-	public Client save(Client client) {
-		return  null; 
-				//clientRepository.save(client);
+	public Client save(Client client)  {
+		return  clientRepository.save(client);
 	}
 	
 	public Client update(Client client) {
-		return  null;
+		return  this.clientRepository.save(client);
 	}
 	
 	public void delete(Client client) {
@@ -34,16 +39,20 @@ public abstract class ClientServiceImpl implements IClientService {
 	}
 	
 	public Client findById(Integer id) {
-		return clientRepository.findById(id).orElse(null);
+		Optional<Client> client = clientRepository.findById(id);
+	   return (client == null ? null : client.orElse(null));
 	}
 	
 	public List<Client> findAll() {
 		return clientRepository.findAll();
 	}
 	
-	public Client findFirst1ByNomAndNom(String prenom, String nom) {
-		return clientRepository.findFirst1ByNomAndNom(prenom, nom);
-	}
+	public List<Client> findByPrenomAndNom(String prenom, String nom) {
+		return clientRepository.findByPrenomAndNom(prenom, nom);
 	
+	
+	
+	
+}
 	
 }

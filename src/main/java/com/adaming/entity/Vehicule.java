@@ -1,14 +1,15 @@
 package com.adaming.entity;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -25,12 +26,26 @@ public class Vehicule implements Serializable{
 	private int nombrePlaces;
 	private double consommation;
 	private String emplacement;
-	private Date disponibilite;
+	private Boolean disponibilite;
 	private String etatLieu;
+//	private String Photo;
+
 	
-	@OneToOne(mappedBy="vehicule")
-	private Reservation reservation;
-	
+	@OneToMany
+	@JoinColumn(name="id_vehicule")
+	private List<Reservation> reservations;
+//	private String photo;
+
+	public List<Reservation> getReservations() {
+		return reservations;
+	}
+
+
+	public void setReservations(List<Reservation> reservations) {
+		this.reservations = reservations;
+	}
+
+
 	public Vehicule() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -38,7 +53,7 @@ public class Vehicule implements Serializable{
 
 
 	public Vehicule(int id_vehicule, String type, String marque, int nombrePlaces, double consommation,
-			String emplacement, Date disponibilite, String etatLieu) {
+			String emplacement, Boolean disponibilite, String etatLieu) {
 		super();
 		this.id_vehicule = id_vehicule;
 		this.type = type;
@@ -52,7 +67,7 @@ public class Vehicule implements Serializable{
 	
 	//Sans Id :
 	public Vehicule( String type, String marque, int nombrePlaces, double consommation,
-			String emplacement, Date disponibilite, String etatLieu) {
+			String emplacement, Boolean disponibilite, String etatLieu) {
 		super();
 		this.type = type;
 		this.marque = marque;
@@ -70,7 +85,8 @@ public class Vehicule implements Serializable{
 				+ nombrePlaces + ", consommation=" + consommation + ", emplacement=" + emplacement + ", disponibilite="
 				+ disponibilite + ", etatLieu=" + etatLieu + "]";
 	}
-	
+
+
 	// Sans l'Id :
 	public String toString1() {
 		return "Vehicule [ type=" + type + ", marque=" + marque + ", nombrePlaces="
@@ -139,12 +155,12 @@ public class Vehicule implements Serializable{
 	}
 
 
-	public Date getDisponibilite() {
+	public Boolean getDisponibilite() {
 		return disponibilite;
 	}
 
 
-	public void setDisponibilite(Date disponibilite) {
+	public void setDisponibilite(Boolean disponibilite) {
 		this.disponibilite = disponibilite;
 	}
 
@@ -157,8 +173,35 @@ public class Vehicule implements Serializable{
 	public void setEtatLieu(String etatLieu) {
 		this.etatLieu = etatLieu;
 	}
+
+
 	
-	
-	
+//	
+//	// Photo added
+//	public String getPhoto() {
+//		return Photo;
+//	}
+//
+//
+//	public void setPhoto(String photo) {
+//		Photo = photo;
+//	}
+//	
+//	
+//	public Vehicule(int id_vehicule, String type, String marque, int nombrePlaces, double consommation,
+//			String emplacement, String disponibilite, String etatLieu, String photo, Reservation reservation) {
+//		super();
+//		this.id_vehicule = id_vehicule;
+//		this.type = type;
+//		this.marque = marque;
+//		this.nombrePlaces = nombrePlaces;
+//		this.consommation = consommation;
+//		this.emplacement = emplacement;
+//		this.disponibilite = disponibilite;
+//		this.etatLieu = etatLieu;
+//		this.photo = photo;
+//		this.reservation = reservation;
+//	}
+
 
 }

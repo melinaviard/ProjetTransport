@@ -10,10 +10,10 @@ import com.adaming.entity.Reservation;
 @Repository
 public interface IReservationRepository extends JpaRepository<Reservation, Integer>{
 	
-	
+
 	public Reservation findReservationByVehicule(long id);
 	
 	public Reservation findReservationByClient(String username);
 	
 
-}
+} 

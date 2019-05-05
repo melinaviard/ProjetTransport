@@ -7,6 +7,8 @@ import com.adaming.entity.Employe;
 
 @Repository
 public interface IEmployeRepository extends JpaRepository<Employe, Integer> {
+
+	
 	
 	
 }

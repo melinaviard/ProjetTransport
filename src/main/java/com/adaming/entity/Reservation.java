@@ -17,6 +17,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 
 
@@ -25,13 +26,17 @@ import javax.persistence.Table;
 @Table(name = "Reservation_infos")
 public class Reservation implements Serializable{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@Column(name="id_reservation")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id_reservation;
-	private Date dateResa; // La date � laquelle a �t� effectu�e la resa (= "date today")
-	private Date dateDebut;
-	private Date dateFin;
+	private String dateResa; // La date � laquelle a �t� effectu�e la resa (= "date today")
+	private String dateDebut;
+	private String dateFin;
 	private String agenceDebut;
 	private String agenceFin;
 	
@@ -39,22 +44,54 @@ public class Reservation implements Serializable{
 	@ManyToOne
 	@JoinColumn(name="id_client" )
 	private Client client;
-	
-	
+
 	// 1 reservation concerne 1 vehicule
-	@OneToOne(cascade=CascadeType.ALL)	
+	@ManyToOne	
 	@JoinColumn(name="id_vehicule")
-	Vehicule vehicule;
+	private Vehicule vehicule;
+	
+	
+	public Reservation(int id_reservation, String dateResa, String dateDebut, String dateFin, String agenceDebut,
+			String agenceFin, Client client, Vehicule vehicule) {
+		super();
+		this.id_reservation = id_reservation;
+		this.dateResa = dateResa;
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
+		this.agenceDebut = agenceDebut;
+		this.agenceFin = agenceFin;
+		this.client = client;
+		this.vehicule= vehicule;
+	}
+
+		//inserer resa, chercher client puis reservation.setclient chercher de la bd puis save 
+
 	
 	
 	
+	public Client getClient() {
+		return client;
+	}
+
+	public void setClient(Client client) {
+		this.client = client;
+	}
+
+	public Vehicule getVehicule() {
+		return vehicule;
+	}
+
+	public void setVehicule(Vehicule vehicule) {
+		this.vehicule = vehicule;
+	}
+
 	public Reservation() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 
-	public Reservation(int id_reservation, Date dateResa, Date dateDebut, Date dateFin, String agenceDebut,
+	public Reservation(int id_reservation, String dateResa, String dateDebut, String dateFin, String agenceDebut,
 			String agenceFin) {
 		super();
 		this.id_reservation = id_reservation;
@@ -67,7 +104,7 @@ public class Reservation implements Serializable{
 	
 	
 	// Sans id :
-	public Reservation( Date dateResa, Date dateDebut, Date dateFin, String agenceDebut,
+	public Reservation( String dateResa, String dateDebut, String dateFin, String agenceDebut,
 			String agenceFin) {
 		super();
 		this.dateResa = dateResa;
@@ -99,32 +136,32 @@ public class Reservation implements Serializable{
 	}
 
 
-	public Date getDateResa() {
+	public String getDateResa() {
 		return dateResa;
 	}
 
 
-	public void setDateResa(Date dateResa) {
+	public void setDateResa(String dateResa) {
 		this.dateResa = dateResa;
 	}
 
 
-	public Date getDateDebut() {
+	public String getDateDebut() {
 		return dateDebut;
 	}
 
 
-	public void setDateDebut(Date dateDebut) {
+	public void setDateDebut(String dateDebut) {
 		this.dateDebut = dateDebut;
 	}
 
 
-	public Date getDateFin() {
+	public String getDateFin() {
 		return dateFin;
 	}
 
 
-	public void setDateFin(Date dateFin) {
+	public void setDateFin(String dateFin) {
 		this.dateFin = dateFin;
 	}
 

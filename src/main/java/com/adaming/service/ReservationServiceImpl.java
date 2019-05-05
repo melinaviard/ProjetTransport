@@ -32,7 +32,7 @@ public class ReservationServiceImpl implements IReservationService {
 		reservationRepository.delete(reservation);
 	}
 	
-	public Reservation findReservationById(Integer id) {
+	public Reservation findById_reservation(Integer id) {
 		return reservationRepository.findById(id).orElse(null);
 	}
 	
@@ -40,13 +40,15 @@ public class ReservationServiceImpl implements IReservationService {
 		return reservationRepository.findAll();
 	}
 
+
 	
 	public Reservation findReservationByVehicule(Integer id_vehicule) {
 		return reservationRepository.findReservationByVehicule(id_vehicule);
+	}
 	
-}
 	public Reservation findReservationByClient(String username) {
 		return reservationRepository.findReservationByClient(username);
 	}
-
+	
+	
 }

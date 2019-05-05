@@ -16,9 +16,12 @@ public interface IReservationService {
 	
 	public void deleteReservation(Reservation reservation);
 	
-	public Reservation findReservationById(Integer id);
+	public Reservation findById_reservation(Integer id);
+	
 	
 	public Reservation findReservationByVehicule(Integer id_vehicule);
+
+	public Reservation findReservationByClient(String username);
 	
 	public List<Reservation> findAllReservation();
 	
