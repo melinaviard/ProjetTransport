@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 
 @Entity
@@ -28,11 +30,13 @@ public class Vehicule implements Serializable{
 	private String emplacement;
 	private Boolean disponibilite;
 	private String etatLieu;
+	private double prix;
 //	private String Photo;
 
 	
 	@OneToMany
 	@JoinColumn(name="id_vehicule")
+	@JsonIgnore
 	private List<Reservation> reservations;
 //	private String photo;
 
@@ -53,7 +57,7 @@ public class Vehicule implements Serializable{
 
 
 	public Vehicule(int id_vehicule, String type, String marque, int nombrePlaces, double consommation,
-			String emplacement, Boolean disponibilite, String etatLieu) {
+			String emplacement, Boolean disponibilite, String etatLieu, double prix) {
 		super();
 		this.id_vehicule = id_vehicule;
 		this.type = type;
@@ -63,11 +67,12 @@ public class Vehicule implements Serializable{
 		this.emplacement = emplacement;
 		this.disponibilite = disponibilite;
 		this.etatLieu = etatLieu;
+		this.prix = prix;
 	}
 	
 	//Sans Id :
 	public Vehicule( String type, String marque, int nombrePlaces, double consommation,
-			String emplacement, Boolean disponibilite, String etatLieu) {
+			String emplacement, Boolean disponibilite, String etatLieu, double prix) {
 		super();
 		this.type = type;
 		this.marque = marque;
@@ -76,6 +81,18 @@ public class Vehicule implements Serializable{
 		this.emplacement = emplacement;
 		this.disponibilite = disponibilite;
 		this.etatLieu = etatLieu;
+		this.prix = prix;
+
+	}
+
+
+	public double getPrix() {
+		return prix;
+	}
+
+
+	public void setPrix(double prix) {
+		this.prix = prix;
 	}
 
 

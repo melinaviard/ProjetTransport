@@ -12,6 +12,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 @Entity
 	@Table(name = "CLient_infos")
@@ -25,6 +27,14 @@ import javax.persistence.Table;
 		private String prenom;
 		private String nom;
 		private int anneePermis;
+		private String adresse;
+		private String mail;
+		private int telephone;
+		
+		@OneToMany
+		@JoinColumn(name="id_reservation" )
+		@JsonIgnore
+		private List<Reservation> reservations;
 	
 		
 		public List<Reservation> getReservations() {
@@ -33,13 +43,7 @@ import javax.persistence.Table;
 		public void setReservations(List<Reservation> reservations) {
 			this.reservations = reservations;
 		}
-		private String adresse;
-		private String mail;
-		private int telephone;
 		
-		@OneToMany
-		@JoinColumn(name="id_reservation" )
-		private List<Reservation> reservations;
 		
 		//Getters setters sans id :
 		public Client() {

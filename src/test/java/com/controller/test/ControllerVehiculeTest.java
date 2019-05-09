@@ -59,7 +59,7 @@ public class ControllerVehiculeTest {
 		LOGGER.info(
 				"--------------- Executing should_have_200_status_when_addVehicule_is_called test Of VehiculeControllerTest ---------------");
 		try {
-			Vehicule myVehicule = new Vehicule(1,"myTitle","myContent",0, 0,  "hey", true, "hello");
+			Vehicule myVehicule = new Vehicule(1,"myTitle","myContent",0, 0,  "hey", true, "hello",0);
 			ObjectMapper objectMapper = new ObjectMapper();
 			String inputJson = objectMapper.writeValueAsString(myVehicule);
 			mvcResult = mvc.perform(MockMvcRequestBuilders.post(uri + "/addVehicule")
@@ -87,7 +87,7 @@ public class ControllerVehiculeTest {
 		LOGGER.info(
 				"--------------- Executing should_have_200_status_when_deleteVehicule_is_called test Of VehiculeControllerTest ---------------");
 		try {
-			Vehicule myVehicule = new Vehicule(1,"myTitle","myContent",0, 0,  "hey", true, "hello");
+			Vehicule myVehicule = new Vehicule(1,"myTitle","myContent",0, 0,  "hey", true, "hello",0);
 			ObjectMapper objectMapper = new ObjectMapper();
 			String inputJson = objectMapper.writeValueAsString(myVehicule);
 			mvcResult = mvc.perform(MockMvcRequestBuilders.post(uri + "/deletevehicule/{id_vehicule}")
@@ -103,7 +103,7 @@ public class ControllerVehiculeTest {
 	public void should_use_delete_when_deleteVehicule_is_called() {
 		LOGGER.info(
 				"--------------- Executing should_use_delete_when_deleteVehicule_is_called test Of VehiculeControllerTest ---------------");
-		Vehicule myVehicule = new Vehicule(1,"myTitle","myContent",0, 0,  "hey", true, "hello");
+		Vehicule myVehicule = new Vehicule(1,"myTitle","myContent",0, 0,  "hey", true, "hello",0);
 		vehiculeController.add(myVehicule);
 		vehiculeController.delete(myVehicule);
 		verify(vehiculeServiceImpl).delete(myVehicule);
@@ -115,7 +115,7 @@ public class ControllerVehiculeTest {
 		LOGGER.info(
 				"--------------- Executing should_have_200_status_when_updateVehicule_is_called test Of VehiculeControllerTest ---------------");
 		try {
-			Vehicule myVehicule = new Vehicule(1,"myTitle","myContent",0, 0,  "hey", true, "hello");
+			Vehicule myVehicule = new Vehicule(1,"myTitle","myContent",0, 0,  "hey", true, "hello",0);
 			ObjectMapper objectMapper = new ObjectMapper();
 			String inputJson = objectMapper.writeValueAsString(myVehicule);
 			mvcResult = mvc.perform(MockMvcRequestBuilders.put(uri + "/update")
@@ -131,7 +131,7 @@ public class ControllerVehiculeTest {
 	public void should_use_update_when_updateVehicule_is_called() {
 		LOGGER.info(
 				"--------------- Executing should_use_update_when_updateVehicule_is_called test Of VehiculeControllerTest ---------------");
-		Vehicule myVehicule = new Vehicule(1,"myTitle","myContent",0, 0,  "hey", true, "hello");
+		Vehicule myVehicule = new Vehicule(1,"myTitle","myContent",0, 0,  "hey", true, "hello",0);
 		vehiculeController.add(myVehicule);
 		vehiculeController.updateVehicule(myVehicule);
 		verify(vehiculeServiceImpl).update(myVehicule);
@@ -143,7 +143,7 @@ public class ControllerVehiculeTest {
 		LOGGER.info(
 				"--------------- Executing should_have_200_status_when_findById_is_called test Of VehiculeControllerTest ---------------");
 		try {
-			Vehicule myVehicule = new Vehicule(1,"myTitle","myContent",0, 0,  "hey", true, "hello");
+			Vehicule myVehicule = new Vehicule(1,"myTitle","myContent",0, 0,  "hey", true, "hello",0);
 			ObjectMapper objectMapper = new ObjectMapper();
 			String inputJson = objectMapper.writeValueAsString(myVehicule);
 			mvcResult = mvc.perform(MockMvcRequestBuilders.post(uri + "/{id_vehicule}")
@@ -159,7 +159,7 @@ public class ControllerVehiculeTest {
 	public void should_use_update_when_findById_is_called() {
 		LOGGER.info(
 				"--------------- Executing should_use_findById_when_findByIdVehicule_is_called test Of VehiculeControllerTest ---------------");
-		Vehicule myVehicule = new Vehicule(1,"myTitle","myContent",0, 0,  "hey", true, "hello");
+		Vehicule myVehicule = new Vehicule(1,"myTitle","myContent",0, 0,  "hey", true, "hello",0);
 		vehiculeController.add(myVehicule);
 		vehiculeController.getVehiculeById(myVehicule.getId_vehicule());
 		verify(vehiculeServiceImpl).findById(1);
@@ -171,7 +171,7 @@ public class ControllerVehiculeTest {
 		LOGGER.info(
 				"--------------- Executing should_have_200_status_when_findByMarque_is_called test Of VehiculeControllerTest ---------------");
 		try {
-			Vehicule myVehicule = new Vehicule(1,"myTitle","myContent",0, 0,  "hey", true, "hello");
+			Vehicule myVehicule = new Vehicule(1,"myTitle","myContent",0, 0,  "hey", true, "hello",0);
 			ObjectMapper objectMapper = new ObjectMapper();
 			String inputJson = objectMapper.writeValueAsString(myVehicule);
 			mvcResult = mvc.perform(MockMvcRequestBuilders.put(uri + "/{marque}")
@@ -187,7 +187,7 @@ public class ControllerVehiculeTest {
 	public void should_use_findByMarque_when_findByMarque_is_called() {
 		LOGGER.info(
 				"--------------- Executing should_use_findByMarque_when_findByMarque_is_called test Of VehiculeControllerTest ---------------");
-		Vehicule myVehicule = new Vehicule(1,"Citadine","Renault",0, 0,  "hey", true, "hello");
+		Vehicule myVehicule = new Vehicule(1,"myTitle","myContent",0, 0,  "hey", true, "hello",0);
 		vehiculeController.add(myVehicule);
 		vehiculeController.getVehiculesByMarque(myVehicule.getMarque());
 		verify(vehiculeServiceImpl).findByMarque("Renault");
@@ -199,7 +199,7 @@ public class ControllerVehiculeTest {
 		LOGGER.info(
 				"--------------- Executing should_have_200_status_when_findByType_is_called test Of VehiculeControllerTest ---------------");
 		try {
-			Vehicule myVehicule = new Vehicule(1,"myTitle","myContent",0, 0,  "hey", true, "hello");
+			Vehicule myVehicule = new Vehicule(1,"myTitle","myContent",0, 0,  "hey", true, "hello",0);
 			ObjectMapper objectMapper = new ObjectMapper();
 			String inputJson = objectMapper.writeValueAsString(myVehicule);
 			mvcResult = mvc.perform(MockMvcRequestBuilders.put(uri + "/{type}")
@@ -215,7 +215,7 @@ public class ControllerVehiculeTest {
 	public void should_use_findByType_when_findByType_is_called() {
 		LOGGER.info(
 				"--------------- Executing should_use_findByType_when_findByType_is_called test Of VehiculeControllerTest ---------------");
-		Vehicule myVehicule = new Vehicule(1,"Citadine","Renault",0, 0,  "hey", true, "hello");
+		Vehicule myVehicule = new Vehicule(1,"myTitle","myContent",0, 0,  "hey", true, "hello",0);
 		vehiculeController.add(myVehicule);
 		vehiculeController.getVehiculesByType(myVehicule.getType());
 		verify(vehiculeServiceImpl).findByType("Citadine");
@@ -228,7 +228,7 @@ public class ControllerVehiculeTest {
 		LOGGER.info(
 				"--------------- Executing should_have_200_status_when_findByNombrePlaces_is_called test Of VehiculeControllerTest ---------------");
 		try {
-			Vehicule myVehicule = new Vehicule(1,"myTitle","myContent",0, 0,  "hey", true, "hello");
+			Vehicule myVehicule = new Vehicule(1,"myTitle","myContent",0, 0,  "hey", true, "hello",0);
 			ObjectMapper objectMapper = new ObjectMapper();
 			String inputJson = objectMapper.writeValueAsString(myVehicule);
 			mvcResult = mvc.perform(MockMvcRequestBuilders.put(uri + "/{nombrePlaces}")
@@ -244,7 +244,7 @@ public class ControllerVehiculeTest {
 	public void should_use_findByType_when_findByNombrePlaces_is_called() {
 		LOGGER.info(
 				"--------------- Executing should_use_findByNombrePlaces_when_findByNombrePlaces_is_called test Of VehiculeControllerTest ---------------");
-		Vehicule myVehicule = new Vehicule(1,"Citadine","Renault",26, 0,  "hey", true, "hello");
+		Vehicule myVehicule = new Vehicule(1,"myTitle","myContent",0, 0,  "hey", true, "hello",0);
 		vehiculeController.add(myVehicule);
 		vehiculeController.getVehiculesByNombrePlaces(myVehicule.getNombrePlaces());
 		verify(vehiculeServiceImpl).findByNombrePlaces(26);

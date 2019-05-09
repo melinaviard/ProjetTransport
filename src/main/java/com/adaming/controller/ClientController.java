@@ -30,6 +30,7 @@ import com.adaming.entity.Vehicule;
 
 @RestController
 @RequestMapping("/client")
+@CrossOrigin(origins="http://localhost:4200")
 public class ClientController {
 
 	@Autowired

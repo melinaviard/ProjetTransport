@@ -19,7 +19,7 @@ public interface IVehiculeService {
 	public List<Vehicule> findByNombrePlaces(int nombrePlaces);
 	public List<Vehicule> findByMarque(String marque);
 //	public List<Vehicule> findByMarqueAndOrTypeAndOrNombrePlaces( String marque, String type, int nombrePlaces);
-	public Vehicule findById(int id_vehicule);
+	public Optional<Vehicule> findById(int id_vehicule);
 	public List<Vehicule> findAll();
 
 
