@@ -36,7 +36,7 @@ public class ClientServiceImpl implements IClientService {
 	public Client save(Client client)  {
 		return  clientRepository.save(client);
 	}
-	
+	 
 	/**
      * Mettre à jour un client.
      * 
